@@ -1,0 +1,121 @@
+// --------------------------------------
+// Yoshimo Friendship Setup
+//
+// Version:   V4.3
+// Author(s): K'aeloree
+// --------------------------------------
+// Backup directory
+BACKUP ~yoshimo/backup~
+
+// Error reports sent to K'aeloree
+AUTHOR ~kae@spellholdstudios.net~
+
+// Version
+VERSION ~4.3~
+
+// Readme
+README ~yoshimo/yoshimofriendship.html~
+
+// Translations
+AUTO_TRA ~yoshimo/translations/%s~
+
+ALWAYS
+  ACTION_IF GAME_IS ~eet~ BEGIN
+    OUTER_SET bg2_chapter = 12
+  END ELSE BEGIN
+    OUTER_SET bg2_chapter = 0
+  END
+  OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+    OUTER_SET bg2_chapter = bg2_chapter + 1
+    OUTER_SPRINT name_source ~bg2_chapter_%i%~
+    OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+  END
+
+  // No exception, everything needs to be converted
+  ACTION_DEFINE_ARRAY YoFrienoconvert BEGIN END
+
+  // any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
+  ACTION_DEFINE_ARRAY YoFriereload BEGIN Setup END
+
+  LAF HANDLE_CHARSETS
+    INT_VAR
+      infer_charsets = 1
+    STR_VAR
+      tra_path = EVAL ~%MOD_FOLDER%/Translations~
+      noconvert_array = YoFrienoconvert
+      reload_array = YoFriereload
+  END
+END
+
+// Languages
+
+LANGUAGE ~English~
+         ~English~
+         ~yoshimo/translations/english/setup.tra~
+         
+LANGUAGE ~Polski~
+         ~Polski~
+         ~yoshimo/translations/polski/setup.tra~
+
+LANGUAGE ~Francais~
+         ~french~
+         ~yoshimo/translations/french/setup.tra~
+
+LANGUAGE ~Chinese~
+         ~schinese~
+         ~yoshimo/translations/schinese/setup.tra~
+
+// --------------------------------------------
+// Yoshimo Friendship for BGII: SoA
+// --------------------------------------------
+// Component setup
+BEGIN @0
+
+// Adds custom IsValidForPartyDialogue state used throughout ninde
+APPEND ~STATE.IDS~ // adds custom IsValidForPartyDialogue state
+  ~0x80101FEF CD_STATE_NOTVALID~
+  UNLESS ~CD_STATE_NOTVALID~
+
+// Compiling dialogue...
+COMPILE ~yoshimo/dialogue/yoshj.d~
+  USING ~yoshimo/translations/english/yoshj.tra~
+  	~yoshimo/translations/%s/yoshj.tra~
+
+// Compiling scripts...
+EXTEND_BOTTOM ~yoshimo.bcs~ ~yoshimo/scripts/yoshimo.baf~ EVALUATE_BUFFER
+
+// Adding new triggers, changing timing etc for existing Yoshimo talks
+COPY_EXISTING ~byoshim.dlg~ ~override~
+  DECOMPILE_DLG_TO_D
+    REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC","GLOBAL")~
+                      ~RealGlobalTimerExpired("YoshimoTalksPC","GLOBAL")~ // Ensuring talk #1 triggers
+
+    REPLACE_TEXTUALLY ~SetGlobal("BYoshimo3","LOCALS",1)~
+                      ~RealSetGlobalTimer("I#YoshimoTalksPC2","GLOBAL",3600) SetGlobal("BYoshimo3","LOCALS",1)~ // Ensuring talk #2 triggers
+
+    REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC2","GLOBAL")~
+                      ~RealGlobalTimerExpired("I#YoshimoTalksPC2","GLOBAL")~ // Ensuring talk #2 triggers
+
+    REPLACE_TEXTUALLY ~SetGlobalTimer("YoshimoTalksPC2","GLOBAL",TEN_DAYS)~
+                      ~RealSetGlobalTimer("YoshimoTalksPC3","GLOBAL",3600) SetGlobal("I#Yoshimo_BY5","GLOBAL",1)~ // Ensuring talk #3 triggers, if it's meant to
+
+    REPLACE_TEXTUALLY ~Global("BYoshimo5","LOCALS",0)~
+                      ~Global("BYoshimo5","LOCALS",0) Global("I#Yoshimo_BY5","GLOBAL",2)~ // Changing triggers for talk #3 to ensure it triggers
+  COMPILE_D_TO_DLG
+  BUT_ONLY_IF_IT_CHANGES
+
+COPY_EXISTING ~yoshimo.dlg~ ~override~
+  DECOMPILE_DLG_TO_D
+    REPLACE_TEXTUALLY ~SetGlobalTimer("YoshimoTalksPC","GLOBAL",FIVE_DAYS)~ ~RealSetGlobalTimer("YoshimoTalksPC","GLOBAL",3600)~
+  COMPILE_D_TO_DLG
+  BUT_ONLY_IF_IT_CHANGES
+  
+COPY_EXISTING ~yoshimo.bcs~ ~override~
+  DECOMPILE_BCS_TO_BAF
+    REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC","GLOBAL")~ ~RealGlobalTimerExpired("YoshimoTalksPC","GLOBAL")~
+    REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC2","GLOBAL")~ ~RealGlobalTimerExpired("I#YoshimoTalksPC2","GLOBAL")~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+  
+// Audio
+COPY ~yoshimo/audio/i#blank.wav~ ~override~
