@@ -1,4 +1,6 @@
 @0    = ~Yoshimo Friendship Mod pour BGII : SoA~
+@1    = ~Yoshimo Friendship est compatible uniquement avec les installations BG II - ToB, BGT et BG2EE.~
+
 
 // WeiDU prompts
 @-1000= "Le mod %TP2_FILE_NAME% contient"
