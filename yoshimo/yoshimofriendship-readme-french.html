@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <style type="text/css">
+    /*<![CDATA[*/
+    <!-- 
+      body {
+        margin: 0;
+        padding: 0;
+        cursor: default;
+        text-align: center;
+        color: #000;
+        background: #e3e3db url('http://spellholdstudios.net/images/sh_bg_main.jpg');
+      }
+      
+      #wrap {
+        text-align: left;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 88%;
+        font-family: Verdana, Tahoma, Arial, sans-serif;
+        font-size: 12px;
+        color: #333;
+      }
+      
+      #header {
+        text-align: center;
+        background: #e5e5e5;
+        border: 1px solid #781808;
+        border-top: 5px solid #781808;
+        border-bottom: 5px solid #781808;
+        padding: 5px 0 13px 0;
+      }
+      
+      #header .about {
+        margin: 7px 0 0 0;
+        padding: 0;
+        font-style: italic;
+        color: #555;
+      }
+      
+      #header .menu {
+        font-weight: bold;
+        margin: 0;
+        color: #999;
+      }
+      
+      #header .menu a:link,
+      #header .menu a:visited {
+        color: #333;
+      }
+      
+      #maindiv {
+        margin: 0 auto;
+        margin-top: -20px;
+        width: 80%;
+      }
+      
+      #maindiv .content {
+        counter-increment: kman;
+        counter-reset: h2;
+        background-color: #e8e8e6;
+        padding: 0 0 25px 0;
+        margin: 50px auto;
+        border-width: 1px 1px 4px 10px;
+        border-style: solid;
+        border-color: #781808;
+        position: relative;
+        display: block;
+      }
+      
+      #maindiv .content::before {
+        content: counter(kman, lower-roman);
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        color: #eee;
+        background-color: #781808;
+        width: 35px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display: block;
+      }
+      
+      h2 {
+        display: block;
+        font-family: Verdana, Trebuchet MS, Arial, serif;
+        text-align: left;
+        text-indent: 30px;
+        padding: 0px;
+        margin: 20px 0 0 0;
+        border-bottom: dotted 2px #d0d0d0;
+        border-top: dotted 2px #d0d0d0;
+        background: #deded9;
+        font-size: 160%;
+      }
+      
+      h2::first-letter {
+        color: #781808;
+        background-color: transparent;
+      }
+      
+      #maindiv p {
+        font-size: 100%;
+        font-style: normal;
+        line-height: 150%;
+        padding: 0px;
+        margin: 10px auto;
+        width: 90%;
+        display: block;
+      }
+      
+      #maindiv address a:link,
+      #maindiv address a:visited {
+        font-weight: bold;
+        text-decoration: underline;
+        background-color: transparent;
+        color: #eaeaea !important;
+        padding-right: 5px;
+        padding-left: 6px;
+      }
+      
+      #maindiv address a:focus,
+      #maindiv address a:hover {
+        text-decoration: none;
+        color: #F1F1F1;
+        border: 0;
+      }
+      
+      #maindiv address a:active {
+        color: #fff;
+        text-decoration: line-through;
+        border: none;
+      }
+      
+      #maindiv address {
+        font-size: 95%;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        color: #BBB;
+        background-color: #781808;
+        padding: 3px 0px 0px;
+        margin: 0px;
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+        left: 0px;
+        display: block;
+        text-align: right;
+      }
+      
+      #maindiv .important {
+        font-size: 95%;
+        font-family: Verdana;
+        text-align: left;
+        background-color: #F1F1F1;
+        border-top: solid 1px #aaa;
+        border-bottom: solid 1px #aaa;
+        border-left: solid 6px #aaa;
+        border-right: solid 6px #aaa;
+        padding: 10px;
+        margin: 20px auto;
+        width: 80%;
+        line-height: 160%;
+      }
+      
+      #maindiv .important::before {
+        display: none;
+      }
+      
+      #maindiv .important p {
+        font-size: 100%;
+        text-indent: 0px;
+        margin: 5px 0 10px 0;
+      }
+      
+      #maindiv ul {
+        margin: -10px 0 0 30px;
+        *margin-left: 65px;
+      }
+      
+      #maindiv ol {
+        margin: -10px 0 0 35px;
+        *margin-left: 70px;
+      }
+      
+      #maindiv .important ul {
+        margin: -10px 0 0 15px;
+      }
+      
+      #maindiv .important ol {
+        margin: -10px 0 0 20px;
+      }
+      
+      #maindiv ul li {
+        list-style-type: square;
+        line-height: 150%;
+      }
+      
+      #maindiv ol li {
+        line-height: 150%;
+      }
+      
+      .t1 {
+        font-weight: bold;
+        width: 26%;
+        text-align: right;
+        clear: right;
+        float: left;
+        *float: none;
+        *margin-left: 65px;
+        line-height: 22px;
+      }
+      
+      .t2 {
+        text-align: left;
+        width: 73%;
+        float: right;
+        *float: none;
+        line-height: 22px;
+      }
+      
+      hr {
+        margin: 10px 0 10px 0;
+        padding: 0;
+        height: 1px;
+        border: 0;
+        color: #aaa;
+        background-color: #aaa;
+      }
+      
+      hr.floatfix {
+        clear: both;
+        color: #e8e8e6;
+        background-color: #e8e8e6;
+        *margin: 0;
+        *padding: 0;
+      }
+      
+      h1 {
+        font-size: 225%;
+        color: #444;
+        padding: 5px 0 5px 0;
+        margin: 0;
+        width: 100%;
+      }
+      
+      h3,
+      h4,
+      h5 {
+        margin: 10px 40px 10px 40px;
+        padding: 0;
+      }
+      
+      h3 {
+        font-size: 125%;
+        font-style: italic;
+      }
+      
+      h4 {
+        font-size: 125%;
+      }
+      
+      h5 {
+        font-size: 100%;
+      }
+      
+      h6 {
+        width: 100%;
+        margin: 10px 0 15px 0;
+        background-color: #ECECEC;
+        text-align: left;
+        text-indent: 30px;
+        font-size: 100%;
+        font-style: italic;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #bbb;
+        border-top: solid 1px #bbb;
+      }
+      
+      a:link,
+      a:visited {
+        color: #781808;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      a:hover,
+      a:active {
+        color: #222;
+        border-bottom: 1px solid black;
+      }
+
+    -->
+    /*]]>*/
+    </style>
+    <title>SPELLHOLD STUDIOS - Yoshimo Friendship</title>
+  </head>
+  <body>
+    <a name="top" id="top"></a>
+    <div id="wrap">
+
+      <div id="header">
+        <h1>Yoshimo Friendship</h1>
+        <strong>Un mod Spellhold Studios pour Baldur's Gate 2 : SoA & ToB</strong>
+        <hr />
+        <p class="about">
+          Auteur : Shadowhawke
+        </p>
+        <p class="about">
+
+          <a href="http://www.spellholdstudios.net/ie/yoshimo">Site du mod</a> &#8226;
+          <a href="http://www.shsforums.net/forum/574-yoshimo-friendship/">Forum du mod</a> &#8226;
+          Version: 4.4
+        </p>
+        <hr />
+        <p class="menu">
+          <a href="#intro">Introduction</a> &middot;
+          <a href="#installation">Installation</a> &middot;
+          <a href="#faq">FAQ</a> &middot;
+          <a href="#credits">Crédits</a> &middot;
+          <a href="#version">Historique des versions</a>
+        </p>
+
+      </div>
+      <div id="maindiv">
+
+        <!-- ================== I n t r o d u c t i o n ================== -->
+        <a name="intro" id="intro"></a>
+        <div class="content">
+          <h2>Introduction</h2><br>
+
+          <p>Un élément dont beaucoup trouvent les PNJ de Bioware dépourvus, c'est la relation plus complexe permise par les mods PNJ modernes - surtout en ce qui concerne les "amitiés", les relations que les PNJ ont avec le PJ lorsqu'ils n'ont pas une romance active.</p>
+
+          <p>Ce mod ajoute une série de dialogues avec Yoshimo, notre charmante canaille préférée que l'on rencontre dans le donjon d'Irenicus au début du jeu. Couvrant le temps qu'il passe dans le groupe, Yoshimo Friendship développe le voleur plein d'humour en accroissant son histoire et en offrant au joueur un point de vue neuf sur le personnage.</p>
+          
+          <p>Écrit par Shadowhawke, auteur de nombreuses fan fictions populaires sur BGII et contributeur sur le mod PNJ Khadion, Yoshimo Friendship est un mod incontournable pour quiconque apprécie le personnage.</p>
+          <p>Visitez le <a href="http://www.spellholdstudios.net/ie/yoshimo">site web</a> ou le <a href="http://www.shsforums.net/forum/574-yoshimo-friendship/">forum</a> pour les dernières mises à jour.</p><br>
+
+          <address>
+            <span class="footer">Yoshimo Friendship &gt; Introduction</span> &#8226;<a href="#top">HAUT DE PAGE</a>
+          </address>
+        </div>
+
+        <!-- ================== I n s t a l l a t i o n ================== -->
+        <a name="installation" id="installation"></a>
+        <div class="content">
+          <h2>Installation</h2><br>
+          <h5>Windows</h5>
+
+          <p>Yoshimo Friendship est un mod WeiDU, compressé via une archive extractable .RAR. Décompressez simplement l'archive dans votre répertoire Baldur's Gate II et exécutez "<em> setup-yoshimo.exe </em>".
+          <p>Pour désinstaller, exécutez à nouveau "<em> setup-yoshimo.exe </em>" et sélectionnez l'option de désinstallation.</p></br>
+
+		<center><hr style="width: 90%; color: #781808; background-color: #781808; " /></center><br>
+
+          <h5>Compatibilité et ordre d'installation</h5>
+
+          <p>Le mod Yoshimo Friendship devrait être compatible avec n'importe quel mod WeiDU, nous ne pouvons cependant pas tous les tester. Il n'est compatible qu'avec BGII : ToB. Si vous rencontrez une erreur, veuillez contactez <a href="kae@spellholdstudios.net">K'aeloree</a> ou bien postez dans les <a href="http://www.shsforums.net/forum/574-yoshimo-friendship/">forums</a>.</p>
+          <p>Bien qu'il ne soit pas requis pour faire correctement tourner Yoshimo Friendship, il est toujours utile d'avoir installé la dernière version du <a href="http://www.gibberlings3.net/bg2fixpack/">BG2 Fixpack</a>.</p><br>
+
+          <address>
+            <span class="footer">Yoshimo Friendship &gt; Installation</span> <a href="#top">HAUT DE PAGE</a>
+          </address>
+        </div>
+
+        <!-- ================== F A Q ================== -->
+        <a name="faq" id="faq"></a>
+        <div class="content">
+          <h2>Foire Aux Questions</h2><br>
+
+          <p><strong>Q : Yoshimo Friendship est-il compatible avec le mod XYZ ?</strong><br />A : Il devrait l'être oui, mais nous n'avons pas testé tous les mods disponibles. Si vous rencontrez une erreur, veuillez contactez <a href="kae@spellholdstudios.net">K'aeloree</a> ou bien postez dans les <a href="http://www.shsforums.net/forum/574-yoshimo-friendship/">forums</a>.</p>
+          <p><strong>Q : Quand débutera l'amitié ?</strong><br />A : Elle commencera une fois que Yoshimo aura achevé ses dialogues de base avec le PJ, qui sont au nombre de 3. Le premier de ces dialogues devrait commencer une heure après que Yoshimo ait rejoint le groupe.</p>
+          <p><strong>Q : Ce mod ne respecte pas *du tout* le personnage.</strong><br />A : Nous sommes toujours à la recherche de moyen d'améliorer la caractérisation dans ce mod, alors si vous avez des suggestions ou des critiques constructives, merci de les poster sur les <a href="http://www.shsforums.net/forum/574-yoshimo-friendship/">forums</a>.</p>
+          <p><strong>Q : As-tu l'intention d'étendre le mod en lui ajoutant d'autres dialogues dans le futur ?</strong><br />A : Non, il n'y a pas d'ajouts prévus.</p>
+          <p><strong>Q : Combien de dialogues ont été ajoutés en tout ?</strong><br />A : Il y a 9 nouveaux dialogues en tout, en plus des 3 dialogues déjà existants dans le jeu. Certains d'entre eux se produisent sous certaines conditions - pour plus d'informations, n'hésitez pas à demander sur le forum.</p>
+          <p><strong>Q : Ce mod change-t-il le jeu d'une façon ou d'une autre, hormis les nouveaux dialogues de Yoshimo ?</strong><br />A : Normalement non.</p>
+          <p><strong>Q: Y a-t-il une chance pour que des dialogues initiés par le joueur soient ajoutés dans le futur ?</strong><br />A : Ce n'est pas prévu pour l'heure, mais si des joueurs sont intéressés je serais ravi d'envisager d'en ajouter lors des versions futures.</p>
+          <p><strong>Q : Je souhaiterais traduire Yoshimo Friendship dans une autre langue. Pourrais-tu TRAifier le mod ?</strong><br />A : Bien sûr, j'en serai heureux. Si vous souhaitez traduire, envoyez-moi un mot et je verrai ce que je peux faire pour la prochaine version.</p><br>
+
+          <address>
+            <span class="footer">Yoshimo Friendship &gt; FAQ</span> &#8226;<a href="#top">HAUT DE PAGE</a>
+          </address>
+        </div>
+
+        <!-- ================== C r e d i t s ================== -->
+        <a name="credits" id="credits"></a>
+        <div class="content">
+
+          <h2>Crédits</h2><br>
+          <span class="t1">Auteur :</span> <span class="t2">Shadowhawke</span><br />
+          <span class="t1">Codeur :</span> <span class="t2">K'aeloree</span><br />
+          <span class="t1">Éditeur et relecteur :</span> <span class="t2">K'aeloree</span><br />
+
+          <hr class="floatfix" /><br>
+
+          <h5>Remerciement :</h5><br>
+          <ul>
+            <li>>Merci à tous ceux qui ont travaillé sur l'Interaction Expansion Project et à tous ceux qui ont contribué au mod !</li>
+            <li>Traduction polonaise : Lava Del'Vortel, Neysa (relecture).</li>
+            <li>Traduction française : Isaya, Ixyon et Graoumf (relecture).</li>
+            <li>Traduction chinoise : Merzbau</li>
+          </ul><br><br>
+
+          <h5>Programmes/outils utilisés pour la création :</h5><br />
+          <ul>
+            <li><a href="https://github.com/WeiDUorg/weidu/releases"><acronym title="Weimer Dialogue Utility">WeiDU</acronym></a>, de Wes Weimer, Valerio Bigiani (the bigg) et Wisp.</li>
+            <li><a href="https://github.com/Argent77/NearInfinity/releases">Near Infinity</a>, de Jon Olav Hauglid, FredSRichardson et Argent77.</li>
+            <li><a href="http://www.rarlab.com/">WinRAR</a>, d'Eugene Roshal/Alexander Roshal.</li>
+            <li><a href="https://gibberlings3.github.io/iesdp/"><acronym title="Infinity Engine Structures Description Project">IESDP</acronym></a>, entretenu par igi et lynx.</li>
+          </ul><br><br>
+
+          <h5>Droits d'auteur :</h5>
+          <div class="important">
+            <p>Yoshimo Friendship a été développé par Shadowhawke et K'aeloree, basé sur le jeu Baldur's Gate II et son extension.</p>
+            <p>Tout le contenu du mod appartient à &copy; Shadowhawke et K'aeloree.</p>
+            <p>Baldur's Gate II : Shadows of Amn et Baldur's Gate II : Throne of Bhaal appartiennent à &copy; TSR, Inc. The BioWare Infinity Engine appartient à &copy; BioWare Corp.</p>
+            <p>Veuillez noter que tout partage ou hébergement de ce mod est expressément non désiré sans la permission des auteurs.</p>
+          </div>
+
+          <address>
+            <span class="footer">Yoshimo Friendship &gt; Credits</span> &#8226;<a href="#top">HAUT DE PAGE</a>
+          </address>
+        </div>
+
+        <!-- ================== H i s t o r i q u e d e s V e r s i o n s ================== -->
+        <a name="version" id="version"></a>
+
+        <div class="content">
+          <h2>Historique des versions</h2><br>
+
+           <h6>Version 4.4 (November 25, 2019)</h6>
+          <ul>
+            <li>Added <em>yoshimo.ini</em> metadata file to support AL|EN's "Project Infinity".</li>
+            <li>tp2 file: added credits for translations and replaced old-school DECOMPILE_DLG_TO_D plus COMPILE_D_TO_DLG process with more accurate DECOMPILE_AND_PATCH command.</li>
+            <li>Added REQUIRE_PREDICATE process to avoid installing the mod in inaccurate games.
+            <li>Component: added <em>DESIGNATED</em> number and "<em>yoshimo_friendship</em>" LABEL.</li>
+            <li>README command now accepts translated files.</li>
+            <li>Updated deprecated modding tools links.</li>
+            <li>Lower cased files.</li>
+            <li>Updated and renamed readme files to <em>yoshimofriendship-readme-%LANGUAGE%.html</em>.</li>
+            <li>Included Linux and Mac Os X versions in the same package (thanks AL|EN!).</li>
+            <li>Updated WeiDU installer to v246.</li>
+            <li>Transfered mod to SpellHold Studios GitHub account.</li>
+          </ul><br>
+
+         <h6>Version 4.3 (August 14, 2018)</h6>
+          <ul>
+            <li>Added Chinese translation by Merzbau.</li>
+          </ul><br>
+
+          <h6>Version 4.2</h6>
+          <ul>
+            <li>Isaya's .tra fixes.</li>
+          </ul><br>
+
+          <h6>Version 4.1</h6>
+          <ul>
+            <li>Shadow Thieves talks won't appear if working for Bodhi.</li>
+          </ul><br>
+
+          <h6>Version 4.0 (August 14, 2017)</h6>
+          <ul>
+            <li>Added French translation provided by Isaya.</li>
+            <li>Added better EE/EET compatibility, along with UTF-8 converter.</li>
+          </ul><br>
+
+          <h6>Version 3.1 (November 15, 2013)</h6>
+          <ul>
+            <li>Updated WeiDU to make mod compatible with BGII:EE.</li>
+          </ul><br>
+
+          <h6>Version 3.0 (January 6, 2010)</h6>
+          <ul>
+            <li>Some fixes in Yoshimo.baf.</li>
+            <li>Polish translation by yarpen, with thanks to Lava Del'Vortel.</li>
+          </ul><br>
+
+          <h6>Version 2.0 (January 15, 2010)</h6>
+          <ul>
+            <li>A few minor bug fixes.</li>
+            <li>Restructured the basic code.</li>
+            <li>TRAified the mod.</li>
+          </ul><br>
+
+          <h6>Version 1.0 (January 1, 2009)</h6>
+          <ul>
+            <li>Initial release</li>
+          </ul><br>
+
+          <address>
+            <span class="footer">Yoshimo Friendship &gt; Historique des versions</span> &#8226;<a href="#top">HAUT DE PAGE</a>
+          </address>
+        </div>
+
+      </div>
+    </div>
+  </body>
+
+</html>
