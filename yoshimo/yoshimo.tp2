@@ -8,10 +8,11 @@
 BACKUP ~yoshimo/backup~
 
 // Error reports sent to K'aeloree
-AUTHOR ~kae@spellholdstudios.net~
+//AUTHOR ~kae@spellholdstudios.net~
+SUPPORT ~"http://www.shsforums.net/forum/574-yoshimo-friendship/~
 
 // Version
-VERSION ~v4.4~
+VERSION ~v4.5~
 
 // Readme
 README ~yoshimo/yoshimofriendship-readme-%LANGUAGE%.html~ ~yoshimo/yoshimofriendship-readme-english.html~
