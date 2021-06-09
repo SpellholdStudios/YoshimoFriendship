@@ -220,7 +220,9 @@ A: Sure, we'd be happy to. If you are interested in translating, just send us a 
 
 - Added dynamic install order syntax and global labels to support AL|EN's "Project Infinity".
 - Added Russian translation by Arkie.
-- Proofread French translation.
+- Proofread French translation and English strrefs.
+- Removed useless "*backup*" folder.
+- Added archive libiconv-1.9.2-1-src.7z with iconv licence info.
 - Updated WeiDU installer to v247.
 
 ## 
