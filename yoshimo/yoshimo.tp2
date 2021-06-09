@@ -39,7 +39,7 @@ ALWAYS
 	ACTION_DEFINE_ARRAY YoFrienoconvert BEGIN END
 
 	// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
-	ACTION_DEFINE_ARRAY YoFriereload BEGIN Setup END
+	ACTION_DEFINE_ARRAY YoFrienreload BEGIN Setup END
 
 	LAF HANDLE_CHARSETS
 		INT_VAR
@@ -47,7 +47,7 @@ ALWAYS
 		STR_VAR
 			tra_path = EVAL ~%MOD_FOLDER%/translations~
 			noconvert_array = YoFrienoconvert
-			reload_array = YoFriereload
+			reload_array = YoFrienreload
 	END
 
 END
@@ -69,6 +69,10 @@ LANGUAGE ~Francais (traduction : Isaya, Ixyon et Graoumf)~
 LANGUAGE ~Chinese (translation by Merzbau)~
          ~schinese~
          ~yoshimo/translations/schinese/setup.tra~
+
+LANGUAGE ~Russian (translation by Arkie)~
+         ~russian~
+         ~yoshimo/translations/russian/setup.tra~
 
 
 /* ===================================== *
