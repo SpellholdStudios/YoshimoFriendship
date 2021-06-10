@@ -4,7 +4,7 @@
 ![Platform](https://img.shields.io/static/v1?label=platform&message=windows%20%7C%20macOS%20%7C%20linux%20%7C%20Project%20Infinity&color=informational)
 ![Language](https://img.shields.io/static/v1?label=languages&message=English%20%7C%20French%20%7C%20Polish%20%7C%20Chinese%20%7C%20Russian&color=limegreen)
 
-![Supported games](https://img.shields.io/static/v1?label=supported%20games&message=BG2%20%7C%20BGT%20%7C%20BG2%3AEE%20%7C%20EET&color=dodgerblue)
+![Supported games](https://img.shields.io/static/v1?label=supported%20games&message=BGII:ToB%20%7C%20BGT%20%7C%20BG2%3AEE%20%7C%20EET&color=dodgerblue)
 
 
 <div align="center"><h1></a>Yoshimo Friendship</h1>
@@ -30,10 +30,9 @@ Baldur's Gate Trilogy and EET<h3>
 
 ## 
 
-:page_facing_up: [Read the mod's readme](https://spellholdstudios.github.io/readmes/https://spellholdstudios.github.io/readmes/yoshimofriendship-readme-english.html)
+:page_facing_up: [Read the mod's readme](https://spellholdstudios.github.io/readmes/yoshimofriendship-readme-english.html) | [Français](https://spellholdstudios.github.io/readmes/yoshimofriendship-readme-French.html)
 
-http://www.shsforums.net/files/file/713-yoshimo-friendship/
-
+:inbox_tray: [Download the mod at Spellhold Studios](http://www.shsforums.net/files/file/713-yoshimo-friendship/)<br>
 
 ## 
 
