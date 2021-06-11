@@ -15,7 +15,7 @@ Baldur's Gate Trilogy and EET<h3>
 </div><br>
 
 
-**Authors:** Shadowhawke  
+**Author:** Shadowhawke  
 **Mod Website:** <a href="http://www.spellholdstudios.net/ie/yoshimo">Spellhold Studios</a>  
 **Mod Forum:** <a href="http://www.shsforums.net/forum/574-yoshimo-friendship/">Yoshimo Friendship</a>
 
@@ -46,7 +46,7 @@ Baldur's Gate Trilogy and EET<h3>
 
 ## <a name="intro" id="intro"></a>Overview
 
-One of the things many find sorely lacking in the Bioware NPCs are the more complex relationships presented by modern NPC mods--especially in regards to "*friendships*", the relationships NPCs have with the PC when not romancing them.
+One of the things many find sorely lacking in the Bioware NPCs are the more complex relationships presented by modern NPC mods - especially in regards to "*friendships*" -, the relationships NPCs have with the PC when not romancing them.
 
 This mod adds a series of dialogues with Yoshimo, our favourite charming knave whom we meet in Irenicus Chateau at the beginning of the game. Spanning the length of the time he's in the party, the Yoshimo Friendship expands on the humorous rogue, adding to his story and giving the player a new perspective on the character..
 
