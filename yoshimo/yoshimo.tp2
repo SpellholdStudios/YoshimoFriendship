@@ -1,7 +1,6 @@
 // --------------------------------------
 // Yoshimo Friendship Setup
 //
-// Version:   V4.3
 // Author(s): K'aeloree
 // --------------------------------------
 // Backup directory
@@ -9,13 +8,13 @@ BACKUP ~yoshimo/backup~
 
 // Error reports sent to K'aeloree
 //AUTHOR ~kae@spellholdstudios.net~
-SUPPORT ~"http://www.shsforums.net/forum/574-yoshimo-friendship/~
+SUPPORT ~http://www.shsforums.net/forum/574-yoshimo-friendship/~
 
 // Version
-VERSION ~v4.5~
+VERSION ~v4.6~
 
 // Readme
-README ~yoshimo/yoshimofriendship-readme-%LANGUAGE%.html~ ~yoshimo/yoshimofriendship-readme-english.html~
+README ~yoshimo/readme/yoshimofriendship-readme-%LANGUAGE%.html~ ~yoshimo/readme/yoshimofriendship-readme-english.html~
 
 // Translations
 AUTO_TRA ~yoshimo/translations/%s~
@@ -28,7 +27,7 @@ ALWAYS
 	END ELSE BEGIN
 		OUTER_SET bg2_chapter = 0
 	END
-	OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+	OUTER_FOR (i=1 ; i<=10 ; i=i+1) BEGIN
 		OUTER_SET bg2_chapter = bg2_chapter + 1
 		OUTER_SPRINT name_source ~bg2_chapter_%i%~
 		OUTER_SET EVAL ~%name_source%~ = bg2_chapter
@@ -39,7 +38,7 @@ ALWAYS
 	ACTION_DEFINE_ARRAY YoFrienoconvert BEGIN END
 
 	// any tra files used in LANGUAGE need to be reloaded after UTF-8 conversion
-	ACTION_DEFINE_ARRAY YoFriereload BEGIN Setup END
+	ACTION_DEFINE_ARRAY YoFrienreload BEGIN Setup END
 
 	LAF HANDLE_CHARSETS
 		INT_VAR
@@ -47,7 +46,7 @@ ALWAYS
 		STR_VAR
 			tra_path = EVAL ~%MOD_FOLDER%/translations~
 			noconvert_array = YoFrienoconvert
-			reload_array = YoFriereload
+			reload_array = YoFrienreload
 	END
 
 END
@@ -69,6 +68,10 @@ LANGUAGE ~Francais (traduction : Isaya, Ixyon et Graoumf)~
 LANGUAGE ~Chinese (translation by Merzbau)~
          ~schinese~
          ~yoshimo/translations/schinese/setup.tra~
+
+LANGUAGE ~Russian (translation by Arkie)~
+         ~russian~
+         ~yoshimo/translations/russian/setup.tra~
 
 
 /* ===================================== *
@@ -94,11 +97,11 @@ EXTEND_BOTTOM ~yoshimo.bcs~ ~yoshimo/scripts/yoshimo.baf~ EVALUATE_BUFFER
 // Adding new triggers, changing timing etc for existing Yoshimo talks
 COPY_EXISTING ~byoshim.dlg~ ~override~
 	DECOMPILE_AND_PATCH BEGIN
-		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC","GLOBAL")~ ~RealGlobalTimerExpired("YoshimoTalksPC","GLOBAL")~												// Ensuring talk #1 triggers
-		REPLACE_TEXTUALLY ~SetGlobal("BYoshimo3","LOCALS",1)~ ~RealSetGlobalTimer("I#YoshimoTalksPC2","GLOBAL",3600) SetGlobal("BYoshimo3","LOCALS",1)~						// Ensuring talk #2 triggers
-		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC2","GLOBAL")~ ~RealGlobalTimerExpired("I#YoshimoTalksPC2","GLOBAL")~											// Ensuring talk #2 triggers
+		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC","GLOBAL")~ ~RealGlobalTimerExpired("YoshimoTalksPC","GLOBAL")~                                               // Ensuring talk #1 triggers
+		REPLACE_TEXTUALLY ~SetGlobal("BYoshimo3","LOCALS",1)~ ~RealSetGlobalTimer("I#YoshimoTalksPC2","GLOBAL",3600) SetGlobal("BYoshimo3","LOCALS",1)~                     // Ensuring talk #2 triggers
+		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC2","GLOBAL")~ ~RealGlobalTimerExpired("I#YoshimoTalksPC2","GLOBAL")~                                           // Ensuring talk #2 triggers
 		REPLACE_TEXTUALLY ~SetGlobalTimer("YoshimoTalksPC2","GLOBAL",TEN_DAYS)~ ~RealSetGlobalTimer("YoshimoTalksPC3","GLOBAL",3600) SetGlobal("I#Yoshimo_BY5","GLOBAL",1)~ // Ensuring talk #3 triggers, if it's meant to
-		REPLACE_TEXTUALLY ~Global("BYoshimo5","LOCALS",0)~ ~Global("BYoshimo5","LOCALS",0) Global("I#Yoshimo_BY5","GLOBAL",2)~												// Changing triggers for talk #3 to ensure it triggers
+		REPLACE_TEXTUALLY ~Global("BYoshimo5","LOCALS",0)~ ~Global("BYoshimo5","LOCALS",0) Global("I#Yoshimo_BY5","GLOBAL",2)~                                              // Changing triggers for talk #3 to ensure it triggers
 	END
 BUT_ONLY
 
