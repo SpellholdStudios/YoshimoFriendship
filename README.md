@@ -30,7 +30,7 @@ Baldur's Gate Trilogy and EET<h3>
 
 ## 
 
-:page_facing_up: [Read the mod's readme](https://spellholdstudios.github.io/readmes/yoshimofriendship-readme-english.html) | [Français](https://spellholdstudios.github.io/readmes/yoshimofriendship-readme-French.html)
+:page_facing_up: [Read the mod's readme](https://spellholdstudios.github.io/readmes/yoshimofriendship-readme-english.html) | [FranÃ§ais](https://spellholdstudios.github.io/readmes/yoshimofriendship-readme-French.html)
 
 :inbox_tray: [Download the mod at Spellhold Studios](http://www.shsforums.net/files/file/713-yoshimo-friendship/)<br>
 
@@ -193,6 +193,7 @@ A: Sure, we'd be happy to. If you are interested in translating, just send us a 
 - French translation: Isaya, Ixyon, Graoumf (proofreading) and The d'Oghmatiques.
 - Chinese translation: Merzbau.
 - Russian translation: Arkie.
+- Version 5 fix code: CamDawg.
 
 ## 
 
@@ -217,6 +218,13 @@ A: Sure, we'd be happy to. If you are interested in translating, just send us a 
 
 
 ## <a name="versions" id="versions"></a>Version History
+
+
+##### Version 5.0 &nbsp;(March 17, 2024)
+
+- Replaced the previous fix for the original talks with a new one, the same as in EE Fixpack, thus improving compatibility with other mods that also fix the issue (EE Fixpack, Yoshimo Romance)
+
+## 
 
 ##### Version 4.6 &nbsp;(June 9, 2021)
 
