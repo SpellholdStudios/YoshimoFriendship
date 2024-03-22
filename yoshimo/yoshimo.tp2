@@ -11,7 +11,7 @@ BACKUP ~yoshimo/backup~
 SUPPORT ~http://www.shsforums.net/forum/574-yoshimo-friendship/~
 
 // Version
-VERSION ~v4.6~
+VERSION ~v5.0~
 
 // Readme
 README ~yoshimo/readme/yoshimofriendship-readme-%LANGUAGE%.html~ ~yoshimo/readme/yoshimofriendship-readme-english.html~
@@ -86,37 +86,18 @@ DESIGNATED 0 LABEL ~yoshimo_friendship~
    covers STATE_CONFUSED, STATE_FEEBLEMINDED, STATE_SILENCED, STATE_DEAD, STATE_ACID_DEATH, STATE_FLAME_DEATH, STATE_EXPLODING_DEATH, STATE_STONE_DEATH, STATE_FROZEN_DEATH, STATE_HELPLESS, STATE_STUNNED, STATE_PANIC, STATE_BERSERK, STATE_SLEEPING */
 APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~ UNLESS ~CD_STATE_NOTVALID~
 
+// Adding new triggers, changing timing etc for existing Yoshimo talks
+
+
+
 // Compiling dialogue...
+COMPILE ~yoshimo/dialogue/yoshimofix.d~
 COMPILE ~yoshimo/dialogue/yoshj.d~
   USING ~yoshimo/translations/english/yoshj.tra~
         ~yoshimo/translations/%s/yoshj.tra~
 
 // Compiling scripts...
 EXTEND_BOTTOM ~yoshimo.bcs~ ~yoshimo/scripts/yoshimo.baf~ EVALUATE_BUFFER
-
-// Adding new triggers, changing timing etc for existing Yoshimo talks
-COPY_EXISTING ~byoshim.dlg~ ~override~
-	DECOMPILE_AND_PATCH BEGIN
-		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC","GLOBAL")~ ~RealGlobalTimerExpired("YoshimoTalksPC","GLOBAL")~                                               // Ensuring talk #1 triggers
-		REPLACE_TEXTUALLY ~SetGlobal("BYoshimo3","LOCALS",1)~ ~RealSetGlobalTimer("I#YoshimoTalksPC2","GLOBAL",3600) SetGlobal("BYoshimo3","LOCALS",1)~                     // Ensuring talk #2 triggers
-		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC2","GLOBAL")~ ~RealGlobalTimerExpired("I#YoshimoTalksPC2","GLOBAL")~                                           // Ensuring talk #2 triggers
-		REPLACE_TEXTUALLY ~SetGlobalTimer("YoshimoTalksPC2","GLOBAL",TEN_DAYS)~ ~RealSetGlobalTimer("YoshimoTalksPC3","GLOBAL",3600) SetGlobal("I#Yoshimo_BY5","GLOBAL",1)~ // Ensuring talk #3 triggers, if it's meant to
-		REPLACE_TEXTUALLY ~Global("BYoshimo5","LOCALS",0)~ ~Global("BYoshimo5","LOCALS",0) Global("I#Yoshimo_BY5","GLOBAL",2)~                                              // Changing triggers for talk #3 to ensure it triggers
-	END
-BUT_ONLY
-
-COPY_EXISTING ~yoshimo.dlg~ ~override~
-	DECOMPILE_AND_PATCH BEGIN
-		REPLACE_TEXTUALLY ~SetGlobalTimer("YoshimoTalksPC","GLOBAL",FIVE_DAYS)~ ~RealSetGlobalTimer("YoshimoTalksPC","GLOBAL",3600)~
-	END
-BUT_ONLY
-  
-COPY_EXISTING ~yoshimo.bcs~ ~override~
-	DECOMPILE_AND_PATCH BEGIN
-		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC","GLOBAL")~ ~RealGlobalTimerExpired("YoshimoTalksPC","GLOBAL")~
-		REPLACE_TEXTUALLY ~GlobalTimerExpired("YoshimoTalksPC2","GLOBAL")~ ~RealGlobalTimerExpired("I#YoshimoTalksPC2","GLOBAL")~
-	END
-BUT_ONLY
   
 // Audio
 COPY ~yoshimo/audio/i#blank.wav~ ~override~

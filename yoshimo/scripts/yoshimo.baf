@@ -1,27 +1,32 @@
 // ---------------------------------------------
 // Friendship
 // ---------------------------------------------
+
+//EE-type fix for his original talk
+
+IF
+	InParty(Myself)
+	GlobalTimerExpired("YoshimoTalksPC2","GLOBAL")
+	Global("PCYosh","LOCALS",2)
+	See(Player1)
+	!StateCheck(Player1,STATE_SLEEPING)
+	CombatCounter(0)
+	Global("BYoshimo5","LOCALS",0)
+THEN
+	RESPONSE #100
+		Interact(Player1)
+END
+
 // Original talk #3 trigger
 IF
-    RealGlobalTimerExpired("YoshimoTalksPC3","GLOBAL")
     InParty(Myself)
-    Global("I#Yoshimo_BY5","GLOBAL",1)
+    Global("BYoshimo5","LOCALS",1)
+    Global("I#YoshimoFriendStart","GLOBAL",0)
 THEN
   RESPONSE #100
-    SetGlobal("I#Yoshimo_BY5","GLOBAL",2)
     RealSetGlobalTimer("I#YoshimoFriendTalksTimer","GLOBAL",3600)
     SetGlobal("I#YoshimoFriendshipActive","GLOBAL",2)
     SetGlobal("I#YoshimoFriendStart","GLOBAL",1)
-END
-
-IF
-    RealGlobalTimerExpired("YoshimoTalksPC3","GLOBAL")
-    InParty(Myself)
-    Global("I#Yoshimo_BY5","GLOBAL",2)
-    Global("BYoshimo5","LOCALS",0)
-THEN
-  RESPONSE #100
-    Interact(Player1)
 END
 
 
